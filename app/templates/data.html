@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% set active_page = "data" %}
+
+{% block app_content %}
+<div class="content-section">
+  <h2 class="section-header">{{ _('Data') }}</h2>
+  <div class="section-body">
+    <p>
+      {{ _('To quickly test the application, you can use the') }}
+      <a href="https://www.kaggle.com/keplersmachines/kepler-labelled-time-series-data" target="_blank">
+        Kaggle dataset
+      </a>
+      {{ _('or') }}
+      <a href="../static/downloads/minitest.csv">our dataset</a>.
+    </p>
+    <p>{{ _('If you use another file, it must meet the following requirements:') }}</p>
+    <ul>
+      <li>{{ _('Plain text file with CSV extension.') }}</li>
+      <li>{{ _('The file must contain 3197 or 3198 columns.') }}</li>
+      <li>{{ _('In the first case, all values will correspond to light flux measurements.') }}</li>
+      <li>{{ _('In the second case, the first column corresponds to the label, where 1 represents a star without exoplanets and 2 represents a star with exoplanets.') }}</li>
+      <li>{{ _('The file may or may not include a header line.') }}</li>
+      <li>{{ _('The file must contain at least one line of data, with no upper limit.') }}</li>
+      <li><b>{{ _('Uploading large files may be interrupted.') }}</b></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

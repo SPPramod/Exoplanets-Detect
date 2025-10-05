@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% set active_page = "index" %}
+
+
+{% block app_content %}
+<p></p>
+
+<div class="main_content">
+    <h2>Exoplanet Detection</h2>
+    <h3>Machine Learning for Exoplanet Detection</h3>
+
+    <p>We present two neural network models trained with the
+       <a href="https://www.kaggle.com/keplersmachines/kepler-labelled-time-series-data" target="_blank">
+       Exoplanet Hunting in Deep Space</a> dataset from Kaggle.</p>
+
+    <p>The first model is based on an LSTM network; the data was normalized and a Gaussian filter was applied to smooth the signal. Finally, the dataset was balanced using SMOTE. The model achieved a sensitivity of 0.6 and a specificity of 0.99.</p>
+
+    <p>The second model is a multilayer perceptron trained in a similar way. In this case, the sensitivity and specificity were 0.4 and 0.94.</p>
+
+    <p>You can test the models with the Kaggle dataset or with 
+       <a href="../static/downloads/minitest.csv">our dataset</a>.</p>
+
+    <p>You can also use a file that fits the 
+       <a href="./data">specifications</a>.</p>
+
+    <p><b>please note that uploading large files may be interrupted.</b></p>
+
+    <h3>Try it!</h3>
+    {{ wtf.quick_form(form) }}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block app_content %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+<div class="row">
+		<div class="col-sm-6">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{ _('Results') }}</h3>
+				</div>
+				<div class="panel-body black_text">
+					<p>{{ _('The light flux of %(total_stars)d stars has been analyzed.', total_stars = results.total_stars) }}</p>
+					{% if results.exoplanets == 0 %}
+						<p>{{ _('No stars with exoplanets were found in the data.') }}</p>
+					{% else %}
+						<p>{{ _('%(number_exoplanes)d stars with exoplanets were found.', 
+							number_exoplanes = results.exoplanets) }}</p>
+						<p>{{ _('The stars with exoplanets are:') }}</p>
+						{{ results.indexes }}
+					{% endif %}				
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{ _('Proportion') }}</h3>
+				</div>
+				<div class="panel-body">
+					<canvas id="chart"></canvas>
+				</div>
+			</div>
+		</div>	
+		
+	{% for star in images %}
+		<div class="col-sm-6">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{ _('Light flux of star ') }} {{ star }}</h3>
+				</div>
+				<div class="panel-body">
+					<img src="{{ images[star][0] }}" class="img-responsive" />
+					<img src="{{ images[star][1] }}" class="img-responsive" />
+				</div>
+			</div>
+		</div>	
+	{% endfor %}	
+	<script>
+		var options = {		
+			legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}},
+			animation: {animateScale: true}
+		}
+
+		var data = {
+			datasets: [{
+				borderWidth: 4,
+				weight: 40,
+				backgroundColor: [{{ colors|map('tojson')|join(', ') }}],
+				hoverBackgroundColor: [{{ hovercolors|map('tojson')|join(', ') }}],
+				data: [{{ values|join(', ') }}]
+			}],
+			labels: [{{ labels|map('tojson')|join(', ') }}]
+		};
+
+		var chart = document.getElementById("chart")
+		if (chart) {
+			new Chart(chart, {
+				type: 'pie',
+				data: data,
+				options: options
+			});
+		}
+	</script>
+</div>	
+{% endblock %}

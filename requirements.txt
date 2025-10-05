@@ -1,0 +1,16 @@
+torch
+torchvision 
+torchaudio
+scikit-learn
+scipy
+Flask
+torchvision
+Flask_Bootstrap
+Flask-Babel
+matplotlib
+WTForms
+Flask_WTF
+pandas
+Werkzeug
+auto_mix_prep
+gunicorn

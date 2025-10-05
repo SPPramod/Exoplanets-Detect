@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% set active_page = "kepler" %}
+
+
+{% block app_content %}
+<div class="main_content">
+    <h2>{{ _('The Kepler Telescope') }}</h2>
+
+    <p>{{ _('Kepler is a space telescope launched by NASA on March 7, 2009. Named in honor of the German astronomer Johannes Kepler and placed in a heliocentric orbit, the mission’s goal was to search for exoplanets, especially those similar in size to Earth and located in the habitable zone of their star.') }}</p>
+
+    <p>{{ _('Equipped with a sensitive photometer and a fixed field of view, Kepler was aimed at the constellations Cygnus, Lyra, and Draco to simultaneously capture the light emitted by about 150,000 stars. The initial mission duration was planned for three and a half years, but the noise in the data turned out to be higher than expected, requiring more time to complete its objectives. The mission was extended until 2016, but unfortunately, two of the gyroscopes failed—one in mid-2012 and another in May 2013. With only two gyroscopes still working, the original mission had to be abandoned. Instead, after considering various alternatives proposed by the scientific community, NASA approved the new Kepler mission, called K2, Second Light.') }}</p>
+
+    <p>{{ _('On October 30, 2018, Kepler completely ran out of fuel and was shut down by NASA. During its nine years of service, Kepler observed 530,506 stars and discovered 2,662 exoplanets—about 70%% of all those we know today. Its data allowed us to estimate that, in the Milky Way alone, there are at least 17 billion other Earth-sized exoplanets. Many of these data are still being studied; hidden within them are another 2,900 planets yet to be confirmed. But the search does not end here: on April 18 of the same year, NASA launched the TESS telescope to continue detecting new worlds using the same transit method. And in 2021, the James Webb Space Telescope is scheduled to launch with the task of examining Kepler’s and TESS’s most promising discoveries. How many new planets will they help us discover?') }}</p>
+</div>
+{% endblock %}
