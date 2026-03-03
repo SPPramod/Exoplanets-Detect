@@ -78,7 +78,7 @@ def predict():
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
             df, predictions = inference(filepath, model)
-            labels = [_('Estrellas'), _('Exoplanetas Detectados')]
+            labels = [_('Stars'), _('Exoplanets Detected')]
             hovercolors = [ "rgb(199, 5, 5)", "rgb(0, 200, 234)" ]
             colors = [ "rgb(150, 4, 4)", "rgb(0, 154, 174)" ]
             exoplanets_indexes = predictions.nonzero().tolist()
